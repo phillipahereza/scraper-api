@@ -14,6 +14,7 @@ RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 # set display port to avoid crash
 ENV DISPLAY=:99
 
+COPY requirements.txt /requirements.txt
 RUN pip install -r requirements.txt
 
 EXPOSE 80

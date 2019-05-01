@@ -1,11 +1,11 @@
 from fastapi import FastAPI, BackgroundTasks
-from pydantic import BaseModel
+from pydantic import BaseModel, Schema
 
 from selenium import webdriver
 
 
 class Request(BaseModel):
-    url: str
+    url: str = Schema(None, title="The description of the item", max_length=1000)
 
 
 app = FastAPI()
