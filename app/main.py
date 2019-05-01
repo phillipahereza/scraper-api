@@ -17,7 +17,7 @@ def kill_chromedriver(browser):
 
 @app.get("/")
 def root():
-    return {"status": "available" }
+    return {"status": "online"}
 
 
 @app.post("/scrape/")
