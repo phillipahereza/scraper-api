@@ -15,6 +15,11 @@ def kill_chromedriver(browser):
     browser.quit()
 
 
+@app.get("/")
+def root():
+    return {"status": "available" }
+
+
 @app.post("/scrape/")
 async def read_item(request: Request, background_tasks: BackgroundTasks):
     options = webdriver.ChromeOptions()
