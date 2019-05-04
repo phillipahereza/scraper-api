@@ -1,14 +1,23 @@
 from fastapi import FastAPI, BackgroundTasks
 from pydantic import BaseModel, Schema
+from starlette.middleware.cors import CORSMiddleware
 
 from selenium import webdriver
-
 
 class Request(BaseModel):
     url: str = Schema(None, title="The description of the item", max_length=1000)
 
 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[*],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 def kill_chromedriver(browser):
